@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+}
+
+body {
+  background: #f5f5f4;
+  color: #0c0a09;
+  /* 두 번 탭 확대 방지 → 어르신이 연속으로 눌러도 화면이 튀지 않음 */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+button,
+a {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea,
+select {
+  font-size: 18px; /* 아이폰에서 입력할 때 자동 확대 방지 (16px 이상) */
+}
+
+/* 아이폰 하단 홈바 영역 확보 */
+.safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  body {
+    background: #fff;
+  }
+}
